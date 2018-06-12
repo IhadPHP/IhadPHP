@@ -8,7 +8,7 @@
  */
 
 //根目录
-define('IHAD',realpath('/'));
+define('IHAD',realpath('./'));
 //核心文件
 define('CORE',IHAD.'/core');
 //项目目录
@@ -21,3 +21,7 @@ if(DEBUG) {
 } else {
     ini_set('display_error','Off');
 }
+
+include CORE . '/common/function.php';
+
+p(IHAD);
