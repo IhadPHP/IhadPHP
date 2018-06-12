@@ -11,6 +11,8 @@
 define('IHAD',realpath('/'));
 //核心文件
 define('CORE',IHAD.'/core');
+//项目目录
+define('APP',IHAD.'/app');
 //调试
 define('DEBUG',true);
 
