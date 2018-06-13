@@ -13,6 +13,8 @@ define('IHAD',realpath('./'));
 define('CORE',IHAD.'/core');
 //项目目录
 define('APP',IHAD.'/app');
+
+define('MODULE','app');
 //调试
 define('DEBUG',true);
 
@@ -21,7 +23,11 @@ if(DEBUG) {
 } else {
     ini_set('display_error','Off');
 }
+//函数库
+include CORE.'/common/function.php';
 
-include CORE . '/common/function.php';
+include CORE.'/ihad.php';
+//自动加载
+spl_autoload_register('\core\ihad::load');
 
-p(IHAD);
+\core\ihad::run();
