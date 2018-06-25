@@ -8,6 +8,7 @@ class ihad
 
     static public function run()
     {
+        \core\lib\log::init();
         $route =  new \core\lib\route();
         $ctrlClass = $route->ctrl;
         $action = $route->action;
@@ -17,6 +18,7 @@ class ihad
             include $ctrlfile;
             $ctrl = new $cltrlClass();
             $ctrl->$action();
+            \core\lib\log::log('ctrl:'.$ctrlClass.'     '.'action:'.$action);
         }else{
             throw new \Exception('找不到控制器'.$ctrlClass);
         }
