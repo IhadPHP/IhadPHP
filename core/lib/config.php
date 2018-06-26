@@ -4,6 +4,7 @@ namespace core\lib;
 class config
 {
     static public $config = array();
+
     static public function get($name,$file)
     {
         /**
