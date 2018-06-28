@@ -1,0 +1,13 @@
+{
+  "name": "Ihad PHP",
+  "description":"PHP Framework",
+  "type":"Framework",
+  "keywords":[
+    "PHP","PHP Framework","MVC","IHAD"
+  ],
+  "require":{
+    "php":">= 5.3.0",
+    "filp/whoops":"*",
+    "sy-records/dump-p":"*"
+  }
+}
