@@ -1,4 +1,7 @@
 <?php
+/**
+ * 自定义函数库
+ */
 function p($data)
 {
     $str = '<pre style="display: block;padding: 9.5px;margin: 44px 0 0 0;font-size: 13px;line-height: 1.42857;color: #333;word-break: break-all;word-wrap: break-word;background-color: #F5F5F5;border: 1px solid #CCC;border-radius: 4px;">';
