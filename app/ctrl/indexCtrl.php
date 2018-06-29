@@ -1,16 +1,17 @@
 <?php
 namespace app\ctrl;
+
+use app\model\cModel;
+use core\lib\model;
+
 class indexCtrl extends \core\ihad
 {
     public function index()
     {
-        $temp = new \core\lib\model();
-//        p('it is index');
-//        $model = new \core\lib\model();
-//        $sql = 'select * from c';
-//        $ret = $model->query($sql);
-//        p($ret->fetchAll());
-        $data = 'hello,world';
+//        $model = new cModel();
+//        $res = $model->lists();
+//        p($res);
+        $data = 'hello';
         $this->assign('data',$data);
         $this->display('index.html');
     }
