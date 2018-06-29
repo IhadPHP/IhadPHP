@@ -1,15 +1,12 @@
 <?php
 namespace  core\lib;
 use core\lib\config;
-class model extends \PDO
+
+class model extends \Medoo\Medoo
 {
     public function __construct()
     {
-        $database = config::all('database');
-        try{
-            parent::__construct($database['DSN'], $database['USERNAME'], $database['PASSWD']);
-        } catch (\PDOException $e){
-            p($e->getMessage());
-        }
+        $options = config::all('database');
+        parent::__construct($options);
     }
 }
