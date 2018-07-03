@@ -8,6 +8,13 @@
   "require":{
     "php":">= 5.3.0",
     "filp/whoops":"*",
-    "sy-records/dump-p":"*"
+    "catfan/medoo":"*",
+    "twig/twig":"*"
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.phpcomposer.com"
+    }
   }
 }
