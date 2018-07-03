@@ -54,7 +54,14 @@ class ihad
         $file = APP.'/views/'.$file;
         if(is_file($file)){
             extract($this->assign);
-            include $file;
+
+            $loader = new \Twig_Loader_Filesystem(APP.'/views');
+            $twig = new \Twig_Environment($loader, array(
+                'cache' => IHAD.'/log/twig',
+                'debug' => DEBUG
+            ));
+            $template = $twig->loadTemplate('index.html');
+            $template->display($this->assign?$this->assign:array());
         }
     }
 }
