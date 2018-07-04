@@ -16,3 +16,62 @@ function p($data)
     $str .= '</pre>';
     echo $str;
 }
+
+/**
+ * @param $name 对应值
+ * @param bool $default 默认值
+ * @param bool $fitt 过滤方法 'int'
+ * @return bool
+ */
+function post($name,$default=false,$fitt=false)
+{
+    if(isset($_POST[$name])){
+        if($fitt){
+            switch ($fitt){
+                case 'int':
+                    if(is_numeric($_POST[$name])){
+                        return $_POST[$name];
+                    }else{
+                        return $default;
+                    }
+                    break;
+                default:;
+            }
+        }else{
+            return $_POST[$name];
+        }
+    }else{
+        return $default;
+    }
+}
+
+function get($name,$default=false,$fitt=false)
+{
+    if(isset($_GET[$name])){
+        if($fitt){
+            switch ($fitt){
+                case 'int':
+                    if(is_numeric($_GET[$name])){
+                        return $_GET[$name];
+                    }else{
+                        return $default;
+                    }
+                    break;
+                default:;
+            }
+        }else{
+            return $_GET[$name];
+        }
+    }else{
+        return $default;
+    }
+}
+
+/**
+ * @param $url 跳转地址
+ */
+function jump($url)
+{
+    header('Location:'.$url);
+    exit();
+}
