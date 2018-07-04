@@ -1,10 +1,10 @@
 <?php
-namespace app\ctrl;
+namespace app\controller;
 
 use app\model\cModel;
 use core\lib\model;
 
-class indexCtrl extends \core\ihad
+class indexController extends \core\ihad
 {
     public function index()
     {
