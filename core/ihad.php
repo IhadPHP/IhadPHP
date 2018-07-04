@@ -10,15 +10,18 @@ class ihad
     {
         \core\lib\log::init();
         $route =  new \core\lib\route();
-        $ctrlClass = $route->ctrl;
+        $ctrlClass = $route->controller;
         $action = $route->action;
-        $ctrlfile = APP . '/ctrl/'.$ctrlClass.'Ctrl.php';
-        $cltrlClass = '\\'.MODULE.'\ctrl\\'.$ctrlClass.'Ctrl';
+        $ctrlfile = APP . '/controller/'.$ctrlClass.'Controller.php';
+        $cltrlClass = '\\'.MODULE.'\controller\\'.$ctrlClass.'Controller';
         if(is_file($ctrlfile)){
             include $ctrlfile;
             $ctrl = new $cltrlClass();
+            if(!method_exists($ctrl,$action)){
+                throw new \Exception('未定义方法'.$action);
+            }
             $ctrl->$action();
-            \core\lib\log::log('ctrl:'.$ctrlClass.'     '.'action:'.$action);
+            \core\lib\log::log('controller:'.$ctrlClass.'     '.'action:'.$action);
         }else{
             throw new \Exception('找不到控制器'.$ctrlClass);
         }
@@ -27,9 +30,6 @@ class ihad
     static public function load($class)
     {
         //自动加载类库
-        // new \ihad\route();
-        // $class = '\core\route';
-        //IHAD.'/core/route.php';
         if(isset($classMap[$class])){
             return true; //避免重复加载
         }else{
@@ -51,11 +51,11 @@ class ihad
 
     public function display($file)
     {
-        $file = APP.'/views/'.$file;
+        $file = APP.'/view/'.$file;
         if(is_file($file)){
             extract($this->assign);
 
-            $loader = new \Twig_Loader_Filesystem(APP.'/views');
+            $loader = new \Twig_Loader_Filesystem(APP.'/view');
             $twig = new \Twig_Environment($loader, array(
                 'cache' => IHAD.'/log/twig',
                 'debug' => DEBUG
