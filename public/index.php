@@ -29,9 +29,9 @@ if(DEBUG) {
 } else {
     ini_set('display_error','Off');
 }
+
 //函数库
 include CORE.'/common/function.php';
-
 include CORE.'/ihad.php';
 //自动加载
 spl_autoload_register('\core\ihad::load');
