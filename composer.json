@@ -1,12 +1,25 @@
 {
   "name": "Ihad PHP",
-  "description":"PHP Framework",
-  "type":"Framework",
+  "description":"This is the PHP framework of a MVC architecture",
+  "type":"project",
   "keywords":[
     "PHP","PHP Framework","MVC","IHAD"
   ],
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Shen Yan",
+      "email": "52o@qq52o.cn",
+      "homepage": "https://qq52o.me",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "52o@qq52o.cn",
+    "issues": "https://github.com/sy-records/IhadPHP/issues"
+  },
   "require":{
-    "php":">= 5.3.0",
+    "php":">= 5.4.0",
     "filp/whoops":"*",
     "catfan/medoo":"*",
     "twig/twig":"*"
