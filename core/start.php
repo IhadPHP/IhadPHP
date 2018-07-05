@@ -8,8 +8,6 @@ define('APP',IHAD.'/app');
 define('MODULE','app');
 //调试
 define('DEBUG',true);
-//静态资源目录
-define('PUBLIC',IHAD.'/public');
 //引入composer
 include "../vendor/autoload.php";
 
